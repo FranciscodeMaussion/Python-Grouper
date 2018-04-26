@@ -12,7 +12,7 @@ pip install -r requirements.txt
 You will need [wkhtmltopdf](https://github.com/wkhtmltopdf/wkhtmltopdf) to convert from html to pdf.
 In debian:
 ```
-https://github.com/JazzCore/python-pdfkit
+sudo apt install wkhtmltopdf
 ```
 
 ## Usage
