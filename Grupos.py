@@ -3,11 +3,13 @@
 
 import random, grip, pdfkit, csv
 from datetime import datetime
+import sys
 
 DEFAULT_NAME = 'grupos-'+datetime.now().strftime('%d-%m-%Y')
 
-def main(filename='lista.csv', new_file=DEFAULT_NAME, cantidad=3):
+def main(cantidad=3, filename='lista.csv', new_file=DEFAULT_NAME, ):
 	alumnos = read_csv(filename)
+	cantidad = int(cantidad)
 	cantidad_grupo = len(alumnos)/cantidad
 	rest_grupo = len(alumnos)%cantidad
 	grupos = make_groups(alumnos, cantidad, cantidad_grupo, rest_grupo)
@@ -72,4 +74,9 @@ def bake(filename):
 	pdfkit.from_file(filename+'.html', filename+'.pdf', options=options)
 
 if __name__ == '__main__':
-    main()
+	args = tuple(sys.argv[1:])
+	if len(args) <= 3:
+		main(*args)
+	else:
+		print "Hay argumantos de mas!!"
+		print "python Grupos.py <cantidad_por_grupo> <nombre_archivo_lectura> <nombre_archivo_generado>"
