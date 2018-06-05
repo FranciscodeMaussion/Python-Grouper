@@ -10,7 +10,7 @@ DEFAULT_NAME = 'grupos-'+datetime.now().strftime('%d-%m-%Y')
 def main(cantidad=3, filename='lista.csv', new_file=DEFAULT_NAME, ):
 	alumnos = read_csv(filename)
 	cantidad = int(cantidad)
-	cantidad_grupo = len(alumnos)/cantidad
+	cantidad_grupo = len(alumnos)//cantidad
 	rest_grupo = len(alumnos)%cantidad
 	grupos = make_groups(alumnos, cantidad, cantidad_grupo, rest_grupo)
 	make_md(grupos, cantidad_grupo, new_file)
@@ -36,8 +36,8 @@ def make_groups(alumnos, cantidad, cantidad_grupo, rest_grupo):
 			pos = random.choice(alumnos)
 			alumnos.remove(pos)
 			grupo.append(pos[0])
-		print grupo
-		print '------------------------'
+		print (grupo)
+		print ('------------------------')
 		grupo[0] = '**' + str(grupo[0]) + '**'
 		grupos.append(grupo)
 	for i in range(rest_grupo):
@@ -45,9 +45,9 @@ def make_groups(alumnos, cantidad, cantidad_grupo, rest_grupo):
 		alumnos.remove(pos)
 		grupos[i].append(pos[0])
 
-	print '------------------------'
-	print grupos
-	print alumnos
+	print ('------------------------')
+	print (grupos)
+	print (alumnos)
 	return grupos
 
 def make_md(grupos, cantidad_grupo, filename):
@@ -78,5 +78,5 @@ if __name__ == '__main__':
 	if len(args) <= 3:
 		main(*args)
 	else:
-		print "Hay argumantos de mas!!"
-		print "python Grupos.py <cantidad_por_grupo> <nombre_archivo_lectura> <nombre_archivo_generado>"
+		print ("Hay argumantos de mas!!")
+		print ("python Grupos.py <cantidad_por_grupo> <nombre_archivo_lectura> <nombre_archivo_generado>")
