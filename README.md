@@ -6,7 +6,7 @@ Generates Group based on a csv
 ```
 pip install -r requirements.txt
 ```
-- [grip](https://github.com/joeyespo/grip) it is used to generate github flavoured html in python.
+- [grip](https://github.com/joeyespo/grip) is used to generate github flavoured html in python.
 - [pdfkit](https://github.com/JazzCore/python-pdfkit) it is used to convert from html to pdf in python.
 ### System wide part
 You will need [wkhtmltopdf](https://github.com/wkhtmltopdf/wkhtmltopdf) to convert from html to pdf.

@@ -7,7 +7,7 @@ import sys
 
 DEFAULT_NAME = 'grupos-'+datetime.now().strftime('%d-%m-%Y')
 
-def main(cantidad=3, filename='lista.csv', new_file=DEFAULT_NAME, ):
+def main(cantidad=3, filename='list.csv', new_file=DEFAULT_NAME, ):
 	alumnos = read_csv(filename)
 	cantidad = int(cantidad)
 	cantidad_grupo = len(alumnos)//cantidad
@@ -17,7 +17,7 @@ def main(cantidad=3, filename='lista.csv', new_file=DEFAULT_NAME, ):
 	bake(new_file)
 
 
-def read_csv(filename='lista.csv'):
+def read_csv(filename='list.csv'):
 	ifile = open(filename, "r")
 	reader = csv.reader(ifile, delimiter=";")
 	row_num = 0
